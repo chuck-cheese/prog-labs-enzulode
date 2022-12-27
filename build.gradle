@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+dependencies {
+    implementation project(':natives')
+}
+
+application {
+    mainClass = 'com.enzulode.lab.Lab'
+}
