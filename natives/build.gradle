@@ -5,4 +5,12 @@ plugins {
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
 
-dependencies {}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testImplementation 'junit:junit:4.13.2'
+
+}

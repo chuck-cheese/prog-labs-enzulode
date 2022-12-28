@@ -2,7 +2,9 @@ package com.enzulode.natives;
 
 public class NativeMethods
 {
-
-	public static native int hashcode();
+	static {
+		System.loadLibrary("NativeMethods");
+	}
+	public static native int hashcode(Object object);
 
 }
