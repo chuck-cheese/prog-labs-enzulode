@@ -11,5 +11,6 @@ dependencies {
 }
 
 application {
+    applicationDefaultJvmArgs = ["-Djava.library.path=./natives/bin"]
     mainClass = 'com.enzulode.lab.Lab'
 }
