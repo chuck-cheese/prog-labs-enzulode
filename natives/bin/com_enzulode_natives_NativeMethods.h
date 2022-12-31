@@ -13,7 +13,7 @@ extern "C" {
  * Signature: (Ljava/lang/Object;)I
  */
 JNIEXPORT jint JNICALL Java_com_enzulode_natives_NativeMethods_hashcode
-  (JNIEnv *, jclass, jobject);
+  (JNIEnv *, jclass, jobject &);
 
 #ifdef __cplusplus
 }
