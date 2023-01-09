@@ -1,16 +1,14 @@
-plugins {
-    id 'java'
-    id 'application'
-}
+allprojects {
+    apply plugin: 'java'
 
-sourceCompatibility = javaVersion
-targetCompatibility = javaVersion
+    repositories {
+        mavenCentral()
+    }
 
-dependencies {
-    implementation project(':natives')
-}
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
 
-application {
-    applicationDefaultJvmArgs = ["-Djava.library.path=./natives/bin"]
-    mainClass = 'com.enzulode.lab.Lab'
+    dependencies {
+        testImplementation 'junit:junit:4.13.2'
+    }
 }
