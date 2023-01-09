@@ -1,0 +1,12 @@
+apply plugin: 'application'
+
+application {
+    applicationDefaultJvmArgs = ["-Djava.library.path=../natives/bin"]
+    mainClass = 'com.enzulode.lab.Lab'
+}
+
+dependencies {
+    annotationProcessor project(':annotation-processor')
+    implementation project(':natives')
+    implementation project(':annotation-processor')
+}
