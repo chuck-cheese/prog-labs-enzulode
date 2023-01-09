@@ -17,18 +17,16 @@ public class Lab
 {
 
 	@MarkedField
-	public static Logger logger;
+	public Logger logger;
+	@MarkedField
+	private Printer printer;
 
-	static {
+	public Lab()
+	{
 		logger = Logger.getLogger(Lab.class.getCanonicalName());
 		printer = new ConsolePrinter();
-	}
 
-	@MarkedField
-	private static Printer printer;
 
-	public static void main(String[] args)
-	{
 		logger.log(Level.INFO, "Starting application....");
 
 		Entity snusmumric = new Snusmumric("Снус", EntityType.CREATURE);
@@ -40,6 +38,13 @@ public class Lab
 
 		Entity mumitroll = new MumiTroll("Мумя", EntityType.CREATURE);
 		mumitroll.speak("Пошёл нахуй!");
+
+//		printer.printString("test string is printed");
+	}
+
+	public static void main(String[] args)
+	{
+		Lab lab = new Lab();
 	}
 
 }
