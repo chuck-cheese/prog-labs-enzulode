@@ -1,2 +1,4 @@
 rootProject.name = 'prog-lab3'
+include('app')
 include('natives')
+include('annotation-processor')
