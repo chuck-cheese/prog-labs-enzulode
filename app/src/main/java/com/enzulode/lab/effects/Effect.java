@@ -4,14 +4,26 @@ public abstract class Effect
 {
 
 	private final String descriptor;
+	private final EffectType type;
 
-	public Effect(String stringDescriptor)
+	public Effect(String descriptor, EffectType type)
 	{
-		descriptor = stringDescriptor;
+		this.descriptor = descriptor;
+		this.type = type;
 	}
 
 	public String getDescriptor()
 	{
 		return descriptor;
+	}
+
+	public EffectType getType()
+	{
+		return type;
+	}
+
+	public String performEffect()
+	{
+		return "[" + EffectType.DEFAULT + "]: " + descriptor;
 	}
 }
