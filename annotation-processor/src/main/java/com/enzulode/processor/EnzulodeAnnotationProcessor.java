@@ -18,12 +18,10 @@ public class EnzulodeAnnotationProcessor extends AbstractProcessor implements Pr
 {
 
 	private int counter;
-	private Logger logger;
 
 	@Override
 	public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv)
 	{
-		logger = Logger.getLogger("com.enzulode.processor.EnzulodeAnnotationProcessor");
 		counter = 0;
 		annotations.forEach(annotation ->
 				roundEnv
