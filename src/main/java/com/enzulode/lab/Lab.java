@@ -16,6 +16,7 @@ import com.enzulode.lab.interactions.Interaction;
 import com.enzulode.lab.util.ConsolePrinter;
 import com.enzulode.lab.util.Printer;
 import com.enzulode.processor.MarkedField;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
