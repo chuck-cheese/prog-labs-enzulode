@@ -3,6 +3,7 @@ package com.enzulode.lab.interactions;
 import com.enzulode.lab.entities.Entity;
 import com.enzulode.lab.util.ConsolePrinter;
 import com.enzulode.lab.util.Printer;
+import static com.enzulode.natives.NativeMethods.hashcode;
 
 public class GetCloserInteraction implements Interaction
 {
@@ -13,6 +14,16 @@ public class GetCloserInteraction implements Interaction
 	public GetCloserInteraction()
 	{
 		printer = new ConsolePrinter();
+	}
+
+	public Entity getMemberOne()
+	{
+		return memberOne;
+	}
+
+	public Entity getMemberTwo()
+	{
+		return memberTwo;
 	}
 
 	@Override
@@ -32,5 +43,26 @@ public class GetCloserInteraction implements Interaction
 	public void run()
 	{
 		printer.printString(perform());
+	}
+
+	@Override
+	public String toString()
+	{
+		return "String representation: " + getMemberOne() + " & " + getMemberTwo();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return hashcode(this) + hashcode(getMemberOne()) + hashcode(getMemberTwo());
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof GetCloserInteraction getCloserInteraction)
+			return hashCode() == getCloserInteraction.hashCode();
+
+		return false;
 	}
 }

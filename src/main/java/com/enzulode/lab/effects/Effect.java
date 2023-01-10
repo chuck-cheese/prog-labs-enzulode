@@ -1,5 +1,7 @@
 package com.enzulode.lab.effects;
 
+import static com.enzulode.natives.NativeMethods.hashcode;
+
 public abstract class Effect
 {
 
@@ -25,5 +27,26 @@ public abstract class Effect
 	public String performEffect()
 	{
 		return "[" + EffectType.DEFAULT + "]: " + descriptor;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "String representation: " + getDescriptor();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return hashcode(this) + hashcode(descriptor) + hashcode(type);
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof Effect effect)
+			return (hashCode() == effect.hashCode());
+
+		return false;
 	}
 }

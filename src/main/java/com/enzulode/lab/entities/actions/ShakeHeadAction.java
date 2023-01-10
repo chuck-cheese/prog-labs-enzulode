@@ -1,5 +1,7 @@
 package com.enzulode.lab.entities.actions;
 
+import static com.enzulode.natives.NativeMethods.hashcode;
+
 public class ShakeHeadAction implements EntityAction
 {
 
@@ -20,5 +22,26 @@ public class ShakeHeadAction implements EntityAction
 	{
 		return (modification != ActionMoodModification.NORMAL) ?
 				modification.getDescriptor() + " покачал головой." : "покачал головой.";
+	}
+
+	@Override
+	public String toString()
+	{
+		return "String representation: " + perform();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return hashcode(this) + hashcode(modification);
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof ShakeHeadAction shakeHeadAction)
+			return hashCode() == shakeHeadAction.hashCode();
+
+		return false;
 	}
 }
