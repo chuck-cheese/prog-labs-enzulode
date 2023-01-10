@@ -12,3 +12,30 @@ allprojects {
         testImplementation 'junit:junit:4.13.2'
     }
 }
+
+apply plugin: 'application'
+
+application {
+    applicationDefaultJvmArgs = ["-Djava.library.path=./natives/bin"]
+    mainClass = 'com.enzulode.lab.Lab'
+}
+
+dependencies {
+    annotationProcessor project(':annotation-processor')
+    implementation project(':natives')
+    implementation project(':annotation-processor')
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.enzulode.lab.Lab'
+    }
+
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
