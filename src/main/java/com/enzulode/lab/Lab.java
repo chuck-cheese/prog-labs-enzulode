@@ -5,7 +5,6 @@ import com.enzulode.lab.effects.FeelingEffect;
 import com.enzulode.lab.effects.SoundEffect;
 import com.enzulode.lab.effects.VisualEffect;
 import com.enzulode.lab.entities.Entity;
-import com.enzulode.lab.entities.EntityType;
 import com.enzulode.lab.entities.MumiTroll;
 import com.enzulode.lab.entities.Snusmumric;
 import com.enzulode.lab.entities.actions.ActionMoodModification;
@@ -16,16 +15,14 @@ import com.enzulode.lab.interactions.Interaction;
 import com.enzulode.lab.util.ConsolePrinter;
 import com.enzulode.lab.util.Printer;
 import com.enzulode.processor.MarkedField;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Lab
 {
 
 	private class EffectPerformer
 	{
-		private Printer printer;
-		private Effect effect;
+		private final Printer printer;
+		private final Effect effect;
 
 		public EffectPerformer(Effect effect)
 		{
@@ -41,19 +38,14 @@ public class Lab
 	}
 
 	@MarkedField
-	public Logger logger;
-	@MarkedField
-	private Printer printer;
+	private final Printer printer;
 
 	public Lab()
 	{
-		logger = Logger.getLogger(Lab.class.getCanonicalName());
 		printer = new ConsolePrinter();
 
-		logger.log(Level.INFO, "Starting application....");
-
-		Entity snusmumric = new Snusmumric("Снус", EntityType.CREATURE);
-		Entity mumitroll = new MumiTroll("Мумя", EntityType.CREATURE);
+		Entity snusmumric = new Snusmumric("Снус");
+		Entity mumitroll = new MumiTroll("Мумя");
 
 		EntityAction shakeHead = new ShakeHeadAction(ActionMoodModification.CONTRITELY);
 		snusmumric.addAction(shakeHead);
