@@ -1,13 +1,15 @@
 package com.enzulode.lab.entities;
 
+import com.enzulode.lab.entities.actions.EntityAction;
+
 import static com.enzulode.natives.NativeMethods.hashcode;
 
 public class MumiTroll extends Entity
 {
 
-	public MumiTroll(String name, EntityType type)
+	public MumiTroll(String name, EntityAction... actions)
 	{
-		super(name, type);
+		super(name, EntityType.CREATURE, actions);
 	}
 
 	@Override

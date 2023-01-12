@@ -1,13 +1,15 @@
 package com.enzulode.lab.entities;
 
+import com.enzulode.lab.entities.actions.EntityAction;
+
 import static com.enzulode.natives.NativeMethods.hashcode;
 
 public class Snusmumric extends Entity
 {
 
-	public Snusmumric(String name, EntityType type)
+	public Snusmumric(String name, EntityAction... actions)
 	{
-		super(name, type);
+		super(name, EntityType.CREATURE, actions);
 	}
 
 	@Override

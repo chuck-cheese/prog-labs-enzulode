@@ -5,12 +5,13 @@ import com.enzulode.lab.util.ConsolePrinter;
 import com.enzulode.lab.util.Printer;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import static com.enzulode.natives.NativeMethods.hashcode;
 
 public abstract class Entity
 {
 	private final String name;
-	private final LinkedList<EntityAction> actions;
+	private final List<EntityAction> actions;
 	private final EntityType type;
 	private final Printer printer;
 
@@ -31,7 +32,7 @@ public abstract class Entity
 		return name;
 	}
 
-	public LinkedList<EntityAction> getActions()
+	public List<EntityAction> getActions()
 	{
 		return actions;
 	}
@@ -54,7 +55,7 @@ public abstract class Entity
 
 	public void performAction()
 	{
-		EntityAction action = actions.poll();
+		EntityAction action = ((LinkedList<EntityAction>) actions).poll();
 
 		if (action != null)
 			printer.printString(getName() + ": " + action.perform());
