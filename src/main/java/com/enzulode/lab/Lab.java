@@ -1,20 +1,19 @@
 package com.enzulode.lab;
 
-import com.enzulode.lab.effects.Effect;
-import com.enzulode.lab.effects.FeelingEffect;
-import com.enzulode.lab.effects.SoundEffect;
-import com.enzulode.lab.effects.VisualEffect;
-import com.enzulode.lab.entities.Entity;
-import com.enzulode.lab.entities.MumiTroll;
-import com.enzulode.lab.entities.Snusmumric;
-import com.enzulode.lab.entities.actions.ActionMoodModification;
-import com.enzulode.lab.entities.actions.EntityAction;
-import com.enzulode.lab.entities.actions.ShakeHeadAction;
-import com.enzulode.lab.interactions.GetCloserInteraction;
-import com.enzulode.lab.interactions.Interaction;
-import com.enzulode.lab.util.ConsolePrinter;
-import com.enzulode.lab.util.Printer;
-import com.enzulode.processor.MarkedField;
+import com.enzulode.core.effects.Effect;
+import com.enzulode.core.effects.FeelingEffect;
+import com.enzulode.core.effects.SoundEffect;
+import com.enzulode.core.effects.VisualEffect;
+import com.enzulode.core.entities.Entity;
+import com.enzulode.core.entities.MumiTroll;
+import com.enzulode.core.entities.Snusmumric;
+import com.enzulode.core.entities.actions.ActionMoodModification;
+import com.enzulode.core.entities.actions.EntityAction;
+import com.enzulode.core.entities.actions.ShakeHeadAction;
+import com.enzulode.core.interactions.GetCloserInteraction;
+import com.enzulode.core.interactions.Interaction;
+import com.enzulode.core.utils.ConsolePrinter;
+import com.enzulode.core.utils.Printer;
 
 public class Lab
 {
@@ -37,12 +36,8 @@ public class Lab
 		}
 	}
 
-	@MarkedField
-	private final Printer printer;
-
 	public Lab()
 	{
-		printer = new ConsolePrinter();
 
 		Entity snusmumric = new Snusmumric("Снус");
 		Entity mumitroll = new MumiTroll("Мумя");

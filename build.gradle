@@ -21,9 +21,8 @@ application {
 }
 
 dependencies {
-    annotationProcessor project(':annotation-processor')
-    implementation project(':natives')
-    implementation project(':annotation-processor')
+    implementation project(':core')
+    annotationProcessor project(':core')
 }
 
 jar {
