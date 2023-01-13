@@ -3,6 +3,7 @@ package com.enzulode.core.entities.actions;
 public enum ActionMoodModification
 {
 
+	DEFAULT("default modifier: not initialised"),
 	CONTRITELY("сокрушённо"),
 	NORMAL("спокойно"),
 	CLOSER("теснее"),
