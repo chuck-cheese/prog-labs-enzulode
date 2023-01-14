@@ -5,7 +5,8 @@ public enum EffectType
 	DEFAULT("default effect type descriptor"),
 	SOUND("звуки"),
 	FEELINGS("ощущения"),
-	VISUAL("визуал");
+	VISUAL("визуал"),
+	ENVIRONMENTAL("окружение");
 
 	private final String descriptor;
 	EffectType(String descriptor)
