@@ -20,6 +20,13 @@ public class MumiTroll extends Entity
 	}
 
 	@Override
+	public void spot(String spotted)
+	{
+		if (getPrinter() != null)
+			getPrinter().printString(String.format("%s [%s] увидел %s", getName(), toString(), spotted));
+	}
+
+	@Override
 	public String toString()
 	{
 		return getType().toString();

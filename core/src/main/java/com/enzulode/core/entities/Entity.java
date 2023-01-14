@@ -63,6 +63,8 @@ public abstract class Entity
 
 	public abstract void speak(String toSpeak);
 
+	public abstract void spot(String spotted);
+
 	@Override
 	public String toString()
 	{
