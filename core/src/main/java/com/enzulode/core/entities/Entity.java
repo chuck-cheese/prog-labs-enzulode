@@ -61,6 +61,10 @@ public abstract class Entity
 			printer.printString(getName() + ": " + action.perform());
 	}
 
+	public void appear()
+	{
+		printer.printString(String.format("%s [%s] появился", getName(), getType()));
+	}
 	public abstract void speak(String toSpeak);
 
 	public abstract void spot(String spotted);
