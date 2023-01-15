@@ -1,7 +1,6 @@
 package com.enzulode.core.entities;
 
 import com.enzulode.core.entities.actions.EntityAction;
-
 import static com.enzulode.natives.NativeMethods.hashcode;
 
 public class MumiTroll extends Entity
