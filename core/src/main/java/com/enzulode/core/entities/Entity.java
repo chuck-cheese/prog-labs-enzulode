@@ -65,6 +65,33 @@ public abstract class Entity
 	{
 		printer.printString(String.format("%s [%s] появился", getName(), getType()));
 	}
+
+	public void takeSomething(Entity item)
+	{
+//		TODO: implement runtime exception if Entity(item).getType != EntityType.ITEM
+
+		if (item.getType() == EntityType.ITEM)
+			getPrinter().printString(String.format("%s [%s] взял %s [%s]", getName(), getType(), item, item.getType()));
+//		else
+//			throw new BLABLAEXCEPTION();
+
+	}
+
+	public void tired()
+	{
+		getPrinter().printString(String.format("%s [%s] почувствовал ужасную усталость", getName(), getType()));
+	}
+
+	public void go()
+	{
+		getPrinter().printString(String.format("%s [%s] двинулся в путь", getName(), getType()));
+	}
+
+	public void stop()
+	{
+		getPrinter().printString(String.format("%s [%s] остановился", getName(), getType()));
+	}
+
 	public abstract void speak(String toSpeak);
 
 	public abstract void spot(String spotted);
