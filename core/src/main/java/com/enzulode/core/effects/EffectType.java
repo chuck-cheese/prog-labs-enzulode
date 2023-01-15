@@ -3,9 +3,9 @@ package com.enzulode.core.effects;
 public enum EffectType
 {
 	DEFAULT("default effect type descriptor"),
-	SOUND("звуки"),
-	FEELINGS("ощущения"),
-	VISUAL("визуал"),
+	SOUND("звуковой эффект"),
+	FEELINGS("эффект ощущения"),
+	VISUAL("визуальный эффект"),
 	ENVIRONMENTAL("эффект окружения");
 
 	private final String descriptor;
