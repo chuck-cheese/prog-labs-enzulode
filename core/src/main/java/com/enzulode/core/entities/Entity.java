@@ -58,7 +58,7 @@ public abstract class Entity
 		EntityAction action = ((LinkedList<EntityAction>) actions).poll();
 
 		if (action != null)
-			printer.printString(getName() + ": " + action.perform());
+			printer.printString(String.format("%s [%s]: %s", getName(), getType(), action.perform()));
 	}
 
 	public void appear()
