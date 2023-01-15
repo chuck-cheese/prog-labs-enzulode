@@ -4,15 +4,15 @@ import static com.enzulode.natives.NativeMethods.hashcode;
 
 public class EnvironmentalEffect extends Effect
 {
+
 	public EnvironmentalEffect(String descriptor)
 	{
-		super(descriptor, EffectType.ENVIRONMENTAL);
+		super(descriptor, EffectType.ENVIRONMENTAL, EffectEnvironment.DEFAULT);
 	}
 
-	@Override
-	public String performEffect()
+	public EnvironmentalEffect(String descriptor, EffectEnvironment env)
 	{
-		return "[" + getType() + "]: " + getDescriptor();
+		super(descriptor, EffectType.ENVIRONMENTAL, env);
 	}
 
 	@Override

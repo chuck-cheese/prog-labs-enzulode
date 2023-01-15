@@ -6,13 +6,12 @@ public class SoundEffect extends Effect
 {
 	public SoundEffect(String descriptor)
 	{
-		super(descriptor, EffectType.SOUND);
+		super(descriptor, EffectType.SOUND, EffectEnvironment.DEFAULT);
 	}
 
-	@Override
-	public String performEffect()
+	public SoundEffect(String descriptor, EffectEnvironment env)
 	{
-		return "[" + getType() + "]: " + getDescriptor();
+		super(descriptor, EffectType.SOUND, env);
 	}
 
 	@Override

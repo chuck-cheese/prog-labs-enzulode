@@ -6,13 +6,12 @@ public class FeelingEffect extends Effect
 {
 	public FeelingEffect(String descriptor)
 	{
-		super(descriptor, EffectType.FEELINGS);
+		super(descriptor, EffectType.FEELINGS, EffectEnvironment.DEFAULT);
 	}
 
-	@Override
-	public String performEffect()
+	public FeelingEffect(String descriptor, EffectEnvironment env)
 	{
-		return "[" + getType() + "]: " + getDescriptor();
+		super(descriptor, EffectType.FEELINGS, env);
 	}
 
 	@Override

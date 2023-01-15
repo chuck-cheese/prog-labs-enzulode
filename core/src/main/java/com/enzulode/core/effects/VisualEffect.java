@@ -6,13 +6,12 @@ public class VisualEffect extends Effect
 {
 	public VisualEffect(String descriptor)
 	{
-		super(descriptor, EffectType.VISUAL);
+		super(descriptor, EffectType.VISUAL, EffectEnvironment.DEFAULT);
 	}
 
-	@Override
-	public String performEffect()
+	public VisualEffect(String descriptor, EffectEnvironment env)
 	{
-		return "[" + getType() + "]: " + getDescriptor();
+		super(descriptor, EffectType.VISUAL, env);
 	}
 
 	@Override

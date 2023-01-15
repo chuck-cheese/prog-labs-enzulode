@@ -7,11 +7,13 @@ public abstract class Effect
 
 	private final String descriptor;
 	private final EffectType type;
+	private final EffectEnvironment env;
 
-	public Effect(String descriptor, EffectType type)
+	public Effect(String descriptor, EffectType type, EffectEnvironment env)
 	{
 		this.descriptor = descriptor;
 		this.type = type;
+		this.env = env;
 	}
 
 	public String getDescriptor()
@@ -24,9 +26,14 @@ public abstract class Effect
 		return type;
 	}
 
+	public EffectEnvironment getEnv()
+	{
+		return env;
+	}
+
 	public String performEffect()
 	{
-		return "[" + EffectType.DEFAULT + "]: " + descriptor;
+		return String.format("[%s][%s]: %s", getType(), getEnv(), getDescriptor());
 	}
 
 	@Override
