@@ -15,7 +15,7 @@ public class MumiTroll extends Entity
 	public void speak(String toSpeak)
 	{
 		if (getPrinter() != null)
-			getPrinter().printString(getName() + "[" + toString() + "] говорит: " + toSpeak);
+			getPrinter().printString(String.format("%s [%s] говорит: %s", getName(), getType(), toSpeak));
 	}
 
 	@Override
