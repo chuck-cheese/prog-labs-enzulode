@@ -1,6 +1,8 @@
 package com.enzulode.core.entities;
 
 import com.enzulode.core.entities.actions.EntityAction;
+import com.enzulode.core.exceptions.EntityIsNotItemException;
+import com.enzulode.core.exceptions.UnsupportedTypeActionPerformed;
 import com.enzulode.core.utils.ConsolePrinter;
 import com.enzulode.core.utils.Printer;
 import java.util.Arrays;
@@ -68,13 +70,10 @@ public abstract class Entity
 
 	public void takeSomething(Entity item)
 	{
-//		TODO: implement runtime exception if Entity(item).getType != EntityType.ITEM
-
 		if (item.getType() == EntityType.ITEM)
 			getPrinter().printString(String.format("%s [%s] взял %s [%s]", getName(), getType(), item, item.getType()));
-//		else
-//			throw new BLABLAEXCEPTION();
-
+		else
+			throw new EntityIsNotItemException();
 	}
 
 	public void tired()
@@ -82,19 +81,25 @@ public abstract class Entity
 		getPrinter().printString(String.format("%s [%s] почувствовал ужасную усталость", getName(), getType()));
 	}
 
-	public void go()
+	public void go() throws UnsupportedTypeActionPerformed
 	{
-		getPrinter().printString(String.format("%s [%s] двинулся в путь", getName(), getType()));
+		if (getType() != EntityType.ITEM)
+			getPrinter().printString(String.format("%s [%s] двинулся в путь", getName(), getType()));
+		else
+			throw new UnsupportedTypeActionPerformed();
 	}
 
-	public void stop()
+	public void stop() throws UnsupportedTypeActionPerformed
 	{
-		getPrinter().printString(String.format("%s [%s] остановился", getName(), getType()));
+		if (getType() != EntityType.ITEM)
+			getPrinter().printString(String.format("%s [%s] остановился", getName(), getType()));
+		else
+			throw new UnsupportedTypeActionPerformed();
 	}
 
-	public abstract void speak(String toSpeak);
+	public abstract void speak(String toSpeak) throws UnsupportedTypeActionPerformed;
 
-	public abstract void spot(String spotted);
+	public abstract void spot(String spotted) throws UnsupportedTypeActionPerformed;
 
 	@Override
 	public String toString()
