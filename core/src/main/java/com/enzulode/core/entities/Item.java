@@ -1,7 +1,6 @@
 package com.enzulode.core.entities;
 
 import com.enzulode.core.exceptions.UnsupportedTypeActionPerformed;
-
 import static com.enzulode.natives.NativeMethods.hashcode;
 
 public class Item extends Entity
