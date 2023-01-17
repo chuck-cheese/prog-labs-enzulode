@@ -6,10 +6,10 @@ public class VisualEffect extends Effect
 {
 	public VisualEffect(String descriptor)
 	{
-		super(descriptor, EffectType.VISUAL, EffectEnvironment.DEFAULT);
+		super(descriptor, EffectType.VISUAL, EffectEnv.DEFAULT);
 	}
 
-	public VisualEffect(String descriptor, EffectEnvironment env)
+	public VisualEffect(String descriptor, EffectEnv env)
 	{
 		super(descriptor, EffectType.VISUAL, env);
 	}
@@ -23,7 +23,7 @@ public class VisualEffect extends Effect
 	@Override
 	public int hashCode()
 	{
-		return hashcode(this) + hashcode(getDescriptor()) + hashcode(getType());
+		return hashcode(this) + hashcode(getDescriptor()) + hashcode(getType()) + hashcode(getEnv());
 	}
 
 	@Override

@@ -6,10 +6,10 @@ public class FeelingEffect extends Effect
 {
 	public FeelingEffect(String descriptor)
 	{
-		super(descriptor, EffectType.FEELINGS, EffectEnvironment.DEFAULT);
+		super(descriptor, EffectType.FEELINGS, EffectEnv.DEFAULT);
 	}
 
-	public FeelingEffect(String descriptor, EffectEnvironment env)
+	public FeelingEffect(String descriptor, EffectEnv env)
 	{
 		super(descriptor, EffectType.FEELINGS, env);
 	}
@@ -23,7 +23,7 @@ public class FeelingEffect extends Effect
 	@Override
 	public int hashCode()
 	{
-		return hashcode(this) + hashcode(getDescriptor()) + hashcode(getType());
+		return hashcode(this) + hashcode(getDescriptor()) + hashcode(getType()) + hashcode(getEnv());
 	}
 
 	@Override

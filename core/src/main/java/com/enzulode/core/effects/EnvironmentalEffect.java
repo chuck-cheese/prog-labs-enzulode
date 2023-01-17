@@ -7,10 +7,10 @@ public class EnvironmentalEffect extends Effect
 
 	public EnvironmentalEffect(String descriptor)
 	{
-		super(descriptor, EffectType.ENVIRONMENTAL, EffectEnvironment.DEFAULT);
+		super(descriptor, EffectType.ENVIRONMENTAL, EffectEnv.DEFAULT);
 	}
 
-	public EnvironmentalEffect(String descriptor, EffectEnvironment env)
+	public EnvironmentalEffect(String descriptor, EffectEnv env)
 	{
 		super(descriptor, EffectType.ENVIRONMENTAL, env);
 	}
@@ -24,7 +24,7 @@ public class EnvironmentalEffect extends Effect
 	@Override
 	public int hashCode()
 	{
-		return hashcode(getDescriptor()) + hashcode(getType());
+		return hashcode(getDescriptor()) + hashcode(getType()) + hashcode(getEnv());
 	}
 
 	@Override

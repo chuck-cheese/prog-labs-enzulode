@@ -7,9 +7,9 @@ public abstract class Effect
 
 	private final String descriptor;
 	private final EffectType type;
-	private final EffectEnvironment env;
+	private final EffectEnv env;
 
-	public Effect(String descriptor, EffectType type, EffectEnvironment env)
+	public Effect(String descriptor, EffectType type, EffectEnv env)
 	{
 		this.descriptor = descriptor;
 		this.type = type;
@@ -26,7 +26,7 @@ public abstract class Effect
 		return type;
 	}
 
-	public EffectEnvironment getEnv()
+	public EffectEnv getEnv()
 	{
 		return env;
 	}

@@ -1,6 +1,6 @@
 package com.enzulode.core.effects;
 
-public enum EffectEnvironment
+public enum EffectEnv
 {
 
 	DEFAULT("окружение"),
@@ -9,7 +9,7 @@ public enum EffectEnvironment
 
 	private final String descriptor;
 
-	EffectEnvironment(String descriptor)
+	EffectEnv(String descriptor)
 	{
 		this.descriptor = descriptor;
 	}

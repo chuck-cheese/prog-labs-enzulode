@@ -6,10 +6,10 @@ public class SoundEffect extends Effect
 {
 	public SoundEffect(String descriptor)
 	{
-		super(descriptor, EffectType.SOUND, EffectEnvironment.DEFAULT);
+		super(descriptor, EffectType.SOUND, EffectEnv.DEFAULT);
 	}
 
-	public SoundEffect(String descriptor, EffectEnvironment env)
+	public SoundEffect(String descriptor, EffectEnv env)
 	{
 		super(descriptor, EffectType.SOUND, env);
 	}
@@ -23,7 +23,7 @@ public class SoundEffect extends Effect
 	@Override
 	public int hashCode()
 	{
-		return hashcode(this) + hashcode(getDescriptor()) + hashcode(getType());
+		return hashcode(this) + hashcode(getDescriptor()) + hashcode(getType()) + hashcode(getEnv());
 	}
 
 	@Override
