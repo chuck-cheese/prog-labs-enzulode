@@ -1,5 +1,7 @@
 package com.enzulode.core.entities;
 
+import com.enzulode.core.exceptions.UnsupportedTypeActionPerformed;
+
 import static com.enzulode.natives.NativeMethods.hashcode;
 
 public class Item extends Entity
@@ -10,17 +12,17 @@ public class Item extends Entity
 	}
 
 	@Override
-	public void speak(String toSpeak)
+	public void speak(String toSpeak) throws UnsupportedTypeActionPerformed
 	{
-//		TODO: implement throwing an exception
 //		Item cannot speak!
+		throw new UnsupportedTypeActionPerformed();
 	}
 
 	@Override
-	public void spot(String spotted)
+	public void spot(String spotted) throws UnsupportedTypeActionPerformed
 	{
-//		TODO: implement throwing an exception
 //		Item cannot spot!
+		throw new UnsupportedTypeActionPerformed();
 	}
 
 	@Override
