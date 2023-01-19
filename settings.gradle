@@ -1,1 +1,3 @@
 rootProject.name = 'prog-lab5-practice'
+
+include('core')

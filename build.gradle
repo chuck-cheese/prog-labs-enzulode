@@ -9,8 +9,26 @@ allprojects {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+dependencies {
+    implementation project(':core')
+}
+
 apply plugin: 'application'
 
 application {
     mainClass = 'com.enzulode.lab.Lab'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.enzulode.lab.Lab'
+    }
+
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
 }
