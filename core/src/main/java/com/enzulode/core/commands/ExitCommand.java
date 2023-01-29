@@ -8,7 +8,7 @@ public class ExitCommand implements Command
 	@Override
 	public String description()
 	{
-		return "Команда позволяет завершить исполнение программы";
+		return "exit - команда позволяет завершить исполнение программы";
 	}
 
 	@Override

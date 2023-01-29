@@ -8,7 +8,7 @@ public class ShowCommand implements Command
 	@Override
 	public String description()
 	{
-		return "команда выводит все элементы коллекции в строковом представлении";
+		return "show - команда выводит все элементы коллекции в строковом представлении";
 	}
 
 	@Override

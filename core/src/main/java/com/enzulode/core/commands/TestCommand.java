@@ -8,7 +8,7 @@ public class TestCommand implements Command
 	@Override
 	public String description()
 	{
-		return "Debug command!";
+		return "test - тестовая команда";
 	}
 
 	@Override
