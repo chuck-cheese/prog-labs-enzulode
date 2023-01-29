@@ -9,12 +9,17 @@ import java.util.Map;
 public class CommandResolver
 {
 
-	private final Map<String, Command> commandRegistry;
+	public static final Map<String, Command> commandRegistry;
+
+	static
+	{
+		commandRegistry = new LinkedHashMap<>();
+	}
+
 	private final Printer printer;
 
 	public CommandResolver()
 	{
-		commandRegistry = new LinkedHashMap<>();
 		printer = new ConsolePrinter();
 
 		commandRegistry.put("help", new HelpCommand());
@@ -28,8 +33,6 @@ public class CommandResolver
 
 		String[] commandWithArgs = resolvingTarget.trim().split(" ");
 		String[] commandArguments = Arrays.copyOfRange(commandWithArgs, 1, commandWithArgs.length);
-
-		System.out.println(Arrays.toString(commandArguments));
 
 		if (commandRegistry.containsKey(commandWithArgs[0]))
 			return commandRegistry.get(commandWithArgs[0]).processArguments(commandArguments);
