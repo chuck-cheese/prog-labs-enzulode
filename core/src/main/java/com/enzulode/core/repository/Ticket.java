@@ -3,7 +3,7 @@ package com.enzulode.core.repository;
 import com.enzulode.core.annotations.*;
 import java.time.ZonedDateTime;
 
-public class Ticket
+public class Ticket implements Comparable<Ticket>
 {
 
 	@NotNull
@@ -103,6 +103,12 @@ public class Ticket
 		SPAIN,
 		THAILAND,
 		SOUTH_KOREA
+	}
+
+	@Override
+	public int compareTo(Ticket o)
+	{
+		return 0;
 	}
 
 	@Override
