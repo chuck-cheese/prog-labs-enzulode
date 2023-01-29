@@ -14,5 +14,5 @@
 
 #### To run lab:
 ```shell
-./gradlew run
+java -jar build/libs/prog-lab5-practice.jar
 ```
