@@ -9,7 +9,7 @@ public class Ticket
 	public Long id;
 	public String name;
 	public Coordinates coordinates;
-//	public ZonedDateTime creationDate;
+	public ZonedDateTime creationDate;
 	public Integer price;
 	public float discount;
 	public TicketType type;
@@ -20,7 +20,7 @@ public class Ticket
 		this.id = id;
 		this.name = name;
 		this.coordinates = new Coordinates(coordX, coordY);
-//		this.creationDate = ZonedDateTime.now(ZoneId.systemDefault());
+		this.creationDate = ZonedDateTime.now(ZoneId.systemDefault());
 		this.price = price;
 		this.discount = discount;
 		this.type = type;
