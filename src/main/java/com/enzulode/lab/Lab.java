@@ -10,7 +10,7 @@ public class Lab
 	public static void main(String[] args) throws IOException
 	{
 
-		File file = new File(System.getProperty("file", "files/collection.json"));
+		File file = new File(System.getProperty("file", "files" + File.separator + "collection.json"));
 		if (!file.exists())
 			file.createNewFile();
 
