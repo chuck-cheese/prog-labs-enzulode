@@ -22,7 +22,10 @@ public class TicketRepository
 		tickets = new Stack<>();
 		creationDate = ZonedDateTime.now(ZoneId.systemDefault());
 		collectionType = "stack";
-		gson = (new GsonBuilder()).registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter()).create();
+		gson = (new GsonBuilder())
+				.registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter())
+				.setLenient()
+				.create();
 	}
 
 	public String info()
@@ -87,19 +90,18 @@ public class TicketRepository
 
 	public void loadFromFile() throws FileNotFoundException
 	{
-		if (file != null && file.exists())
+		if (file == null || file.exists())
 		{
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			List<String> lines = reader.lines().toList();
-			StringBuilder sb = new StringBuilder();
-			for (String line : lines)
-				sb.append(line);
-
-			String[] allData = sb.toString().split(",\n");
-
-			for (String ticketJsonObject : allData)
-				tickets.add(gson.fromJson(ticketJsonObject, Ticket.class));
+			return;
+//			TODO: implement throwing an exception
 		}
+
+		BufferedReader reader = new BufferedReader(new FileReader(file));
+		List<String> lines = reader.lines().toList();
+		StringBuilder sb = new StringBuilder();
+		for (String line : lines)
+			if (!"\u001a".equals(line) && !"".equals(line))
+				tickets.add(gson.fromJson(line, Ticket.class));
 	}
 
 	public void save() throws IOException
@@ -107,7 +109,8 @@ public class TicketRepository
 
 		StringBuilder fileContents = new StringBuilder();
 		for(Ticket ticket : tickets)
-			fileContents.append(gson.toJson(ticket, Ticket.class)).append(",\n");
+			if (ticket != null)
+				fileContents.append(gson.toJson(ticket, Ticket.class)).append('\n');
 
 //		if (file == null)
 //			throw new FileIsNotExistsException()
