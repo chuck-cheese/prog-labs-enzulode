@@ -3,10 +3,7 @@ package com.enzulode.core.repository;
 import com.enzulode.core.util.ZonedDateTimeAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -16,6 +13,7 @@ public class TicketRepository
 	private final List<Ticket> tickets;
 	private final ZonedDateTime creationDate;
 	private final String collectionType;
+	private final Gson gson;
 
 	private File file;
 
@@ -24,6 +22,7 @@ public class TicketRepository
 		tickets = new Stack<>();
 		creationDate = ZonedDateTime.now(ZoneId.systemDefault());
 		collectionType = "stack";
+		gson = (new GsonBuilder()).registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter()).create();
 	}
 
 	public String info()
@@ -36,7 +35,8 @@ public class TicketRepository
 		StringBuilder sb = new StringBuilder();
 
 		for (Ticket ticket : tickets)
-			sb.append(ticket.toString()).append('\n');
+			if (ticket != null)
+				sb.append(ticket.toString()).append('\n');
 
 		return sb.toString();
 	}
@@ -85,10 +85,25 @@ public class TicketRepository
 //		throw new FileAlreadySetException
 	}
 
+	public void loadFromFile() throws FileNotFoundException
+	{
+		if (file != null && file.exists())
+		{
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			List<String> lines = reader.lines().toList();
+			StringBuilder sb = new StringBuilder();
+			for (String line : lines)
+				sb.append(line);
+
+			String[] allData = sb.toString().split(",\n");
+
+			for (String ticketJsonObject : allData)
+				tickets.add(gson.fromJson(ticketJsonObject, Ticket.class));
+		}
+	}
+
 	public void save() throws IOException
 	{
-
-		Gson gson = (new GsonBuilder()).registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter()).create();
 
 		StringBuilder fileContents = new StringBuilder();
 		for(Ticket ticket : tickets)
