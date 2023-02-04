@@ -3,7 +3,6 @@ package com.enzulode.core.util;
 import com.enzulode.core.commands.Command;
 import com.enzulode.core.exceptions.IncorrectCommandArgumentsException;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Scanner;
 
