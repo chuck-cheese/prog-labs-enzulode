@@ -90,7 +90,7 @@ public class TicketRepository
 
 	public void loadFromFile() throws FileNotFoundException
 	{
-		if (file == null || file.exists())
+		if (file == null || !file.exists())
 		{
 			return;
 //			TODO: implement throwing an exception
