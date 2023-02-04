@@ -1,5 +1,7 @@
 package com.enzulode.core.repository;
 
+import java.util.UUID;
+
 public class Person
 {
 
@@ -8,9 +10,9 @@ public class Person
 	private final HairColor hairColor; // nullable
 	private final Country nationality; // nullable
 
-	public Person(String passportID, EyeColor eyeColor, HairColor hairColor, Country country)
+	public Person(EyeColor eyeColor, HairColor hairColor, Country country)
 	{
-		this.passportID = passportID;
+		this.passportID = UUID.randomUUID().toString();
 		this.eyeColor = eyeColor;
 		this.hairColor = hairColor;
 		this.nationality = country;
