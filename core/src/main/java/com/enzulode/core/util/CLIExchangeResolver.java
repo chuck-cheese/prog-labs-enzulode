@@ -15,8 +15,7 @@ public class CLIExchangeResolver
 		put("info", new InfoCommand());
 		put("show", new ShowCommand());
 		put("add", new AddCommand());
-//		TODO: add add command
-//		TODO: add update command
+		put("update", new UpdateCommand());
 		put("remove_by_id", new RemoveCommand());
 		put("clear", new ClearCommand());
 		put("save", new SaveCommand());
