@@ -1,7 +1,10 @@
 package com.enzulode.core;
 
 import com.enzulode.core.exceptions.CommandNotFoundException;
+import com.enzulode.core.repository.TicketRepository;
 import com.enzulode.core.util.*;
+
+import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +18,17 @@ public class Console
 	private final CLIExchangeResolver exchangeResolver;
 	private final List<CommandHandler> handlers;
 
-	public Console(InputStream is)
+	public static final TicketRepository TICKET_REPOSITORY = new TicketRepository();
+
+	public Console(InputStream is, File... file)
 	{
 		input = new Scanner(is);
 		output = new ConsolePrinter();
 		exchangeResolver = new CLIExchangeResolver(input, output);
 		handlers = new ArrayList<>();
+
+		if (file.length == 1)
+			TICKET_REPOSITORY.setFile(file[0]);
 	}
 
 	public void addCommandHandler(CommandHandler handler)
