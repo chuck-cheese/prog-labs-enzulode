@@ -52,15 +52,25 @@ public class TicketRepository
 //			throw new TicketWasNotCreated
 	}
 
+	public Ticket findTicketById(Long id)
+	{
+		for (Ticket t : tickets)
+			if (id.equals(t.id))
+				return t;
+
+		return null;
+	}
+
 	public void update(Long id, Ticket ticket)
 	{
 		for (Ticket t : tickets)
-			if (Objects.equals(ticket.id, id))
+			if (ticket != null && Objects.equals(t.id, id))
 			{
 				tickets.set(tickets.indexOf(t), ticket);
 				return;
 			}
 
+//		TODO: new ticket is null -> exception
 //		TODO: id not exists -> throw an exception
 	}
 
