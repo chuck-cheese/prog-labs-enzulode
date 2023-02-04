@@ -1,6 +1,9 @@
 package com.enzulode.core.util;
 
 import com.enzulode.core.commands.Command;
+import com.enzulode.core.exceptions.IncorrectCommandArgumentsException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +20,20 @@ public class CommandExecutor
 
 	public boolean executeCommand(Command command, List<String> args)
 	{
-		return command.processArguments(args).execute(in, out);
+		try
+		{
+			return command.processArguments(args).execute(in, out);
+		}
+		catch (IncorrectCommandArgumentsException | IOException e)
+		{
+			out.println(e.getMessage());
+		}
+		finally
+		{
+			command.clearArguments();
+		}
+
+		return false;
 	}
 
 }

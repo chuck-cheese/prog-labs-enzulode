@@ -19,7 +19,7 @@ public class RemoveCommand extends Command
 
 	@Override
 	public boolean execute(Scanner in, Printer out)
-			throws IncorrectCommandArgumentsException, URISyntaxException, IOException
+			throws IncorrectCommandArgumentsException, IOException
 	{
 		List<String> args = getArguments();
 

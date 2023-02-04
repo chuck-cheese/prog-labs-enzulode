@@ -17,7 +17,7 @@ public class SaveCommand extends Command
 
 	@Override
 	public boolean execute(Scanner in, Printer out)
-			throws IncorrectCommandArgumentsException, URISyntaxException, IOException
+			throws IncorrectCommandArgumentsException, IOException
 	{
 		Console.TICKET_REPOSITORY.save();
 		return true;

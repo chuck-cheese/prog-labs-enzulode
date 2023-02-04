@@ -55,6 +55,6 @@ public abstract class Command
 	}
 
 	public abstract boolean execute(Scanner in, Printer out)
-			throws IncorrectCommandArgumentsException, URISyntaxException, IOException;
+			throws IncorrectCommandArgumentsException, IOException;
 
 }
