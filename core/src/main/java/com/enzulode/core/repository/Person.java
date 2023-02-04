@@ -3,10 +3,10 @@ package com.enzulode.core.repository;
 public class Person
 {
 
-	private String passportID;
-	private EyeColor eyeColor;
-	private HairColor hairColor;
-	private Country nationality;
+	private final String passportID; // not null + unique + cannot be empty string + length is less than 36
+	private final EyeColor eyeColor; // not null
+	private final HairColor hairColor; // nullable
+	private final Country nationality; // nullable
 
 	public Person(String passportID, EyeColor eyeColor, HairColor hairColor, Country country)
 	{
@@ -34,5 +34,12 @@ public class Person
 	public String getPassportID()
 	{
 		return passportID;
+	}
+
+	@Override
+	public String toString()
+	{
+		return String.format("Person[passportID=%s, hairColor=%s, eyeColor=%s, nationality=%s]",
+				passportID, hairColor.name(), eyeColor.name(), nationality.name());
 	}
 }

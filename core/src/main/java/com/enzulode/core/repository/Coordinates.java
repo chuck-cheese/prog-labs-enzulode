@@ -20,4 +20,10 @@ public class Coordinates
 	{
 		return y;
 	}
+
+	@Override
+	public String toString()
+	{
+		return String.format("Coordinates[%f, %f]", x, y);
+	}
 }
