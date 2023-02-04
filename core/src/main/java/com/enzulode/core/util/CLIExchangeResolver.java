@@ -1,8 +1,6 @@
 package com.enzulode.core.util;
 
-import com.enzulode.core.commands.Command;
-import com.enzulode.core.commands.ExitCommand;
-import com.enzulode.core.commands.HelpCommand;
+import com.enzulode.core.commands.*;
 import com.enzulode.core.exceptions.CommandNotFoundException;
 import java.util.*;
 
@@ -12,8 +10,23 @@ public class CLIExchangeResolver
 	private final CommandExecutor executor;
 
 	public static final Map<String, Command> commandRegistry = new HashMap<>() {{
-		put("exit", new ExitCommand());
+
 		put("help", new HelpCommand());
+		put("info", new InfoCommand());
+		put("show", new ShowCommand());
+//		TODO: add add command
+//		TODO: add update command
+		put("remove_by_id", new RemoveCommand());
+		put("clear", new ClearCommand());
+		put("save", new SaveCommand());
+//		TODO: add execute_script command
+		put("exit", new ExitCommand());
+		put("shuffle", new ShuffleCommand());
+		put("reorder", new ReorderCommand());
+//		TODO: add history command
+		put("count_by_price", new CountByPriceCommand());
+		put("print_descending", new PrintDescendingCommand());
+		put("print_field_descending_price", new PrintFieldDescendingPriceCommand());
 	}};
 
 	public CLIExchangeResolver(Scanner in, Printer out)
