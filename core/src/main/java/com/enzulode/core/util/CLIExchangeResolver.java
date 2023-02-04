@@ -19,7 +19,7 @@ public class CLIExchangeResolver
 		put("remove_by_id", new RemoveCommand());
 		put("clear", new ClearCommand());
 		put("save", new SaveCommand());
-//		TODO: add execute_script command
+		put("execute_script", new ExecuteScriptCommand());
 		put("exit", new ExitCommand());
 		put("shuffle", new ShuffleCommand());
 		put("reorder", new ReorderCommand());
