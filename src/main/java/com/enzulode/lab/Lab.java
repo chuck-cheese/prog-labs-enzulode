@@ -1,13 +1,20 @@
 package com.enzulode.lab;
 
 import com.enzulode.core.Console;
+import java.io.File;
+import java.io.IOException;
 
 public class Lab
 {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
-		Console console = new Console(System.in);
+
+		File file = new File("files/collection.json");
+		if (!file.exists())
+			file.createNewFile();
+
+		Console console = new Console(System.in, file);
 
 		console.addCommandHandler((exchange -> {
 
