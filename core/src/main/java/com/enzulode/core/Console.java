@@ -6,6 +6,7 @@ import com.enzulode.core.util.*;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,6 +19,7 @@ public class Console
 	private final List<CommandHandler> handlers;
 
 	public static final TicketRepository TICKET_REPOSITORY = new TicketRepository();
+	public static final List<String> EXECUTED_SCRIPTS = new LinkedList<>();
 
 	public Console(InputStream is, File... file)
 	{
