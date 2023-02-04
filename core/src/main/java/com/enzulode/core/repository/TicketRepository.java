@@ -48,6 +48,8 @@ public class TicketRepository
 	{
 		if (ticket != null)
 			tickets.add(ticket);
+//		else
+//			throw new TicketWasNotCreated
 	}
 
 	public void update(Long id, Ticket ticket)
