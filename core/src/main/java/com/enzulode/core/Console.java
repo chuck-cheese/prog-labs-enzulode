@@ -3,7 +3,6 @@ package com.enzulode.core;
 import com.enzulode.core.exceptions.CommandNotFoundException;
 import com.enzulode.core.repository.TicketRepository;
 import com.enzulode.core.util.*;
-
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
