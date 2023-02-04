@@ -22,11 +22,7 @@ public class AddCommand extends Command
 		UserInputScenario inputScenario = new UserAddNewTicket(in, out);
 		inputScenario.run();
 		Ticket newTicket = (Ticket) inputScenario.extractResult();
-
-		if (newTicket != null)
-			Console.TICKET_REPOSITORY.add(newTicket);
-//		else
-//			throw new TicketWasNotCreated
+		Console.TICKET_REPOSITORY.add(newTicket);
 
 		return true;
 	}
