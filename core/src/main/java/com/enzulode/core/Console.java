@@ -4,6 +4,7 @@ import com.enzulode.core.exceptions.CommandNotFoundException;
 import com.enzulode.core.repository.TicketRepository;
 import com.enzulode.core.util.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -18,7 +19,6 @@ public class Console
 
 	public static final TicketRepository TICKET_REPOSITORY = new TicketRepository();
 	public static final List<String> EXECUTED_SCRIPTS = new LinkedList<>();
-
 	public static final Deque<String> HISTORY = new ArrayDeque<>();
 
 	public Console(InputStream is, File... file)
@@ -29,7 +29,17 @@ public class Console
 		handlers = new ArrayList<>();
 
 		if (file.length == 1)
-			TICKET_REPOSITORY.setFile(file[0]);
+		{
+			try
+			{
+				TICKET_REPOSITORY.setFile(file[0]);
+				TICKET_REPOSITORY.loadFromFile();
+			}
+			catch (FileNotFoundException e)
+			{
+				output.println(e.getMessage());
+			}
+		}
 	}
 
 	public void addCommandHandler(CommandHandler handler)
