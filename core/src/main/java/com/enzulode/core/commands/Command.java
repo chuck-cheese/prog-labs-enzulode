@@ -1,6 +1,10 @@
 package com.enzulode.core.commands;
 
+import com.enzulode.core.exceptions.IncorrectCommandArgumentsException;
 import com.enzulode.core.util.Printer;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,11 +44,17 @@ public abstract class Command
 		return this;
 	}
 
+	public void clearArguments()
+	{
+		arguments.clear();
+	}
+
 	public String help()
 	{
 		return String.format("%s - %s", name, description);
 	}
 
-	public abstract boolean execute(Scanner in, Printer out);
+	public abstract boolean execute(Scanner in, Printer out)
+			throws IncorrectCommandArgumentsException, URISyntaxException, IOException;
 
 }
