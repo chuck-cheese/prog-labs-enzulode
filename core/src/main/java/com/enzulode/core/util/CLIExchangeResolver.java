@@ -23,7 +23,7 @@ public class CLIExchangeResolver
 		put("exit", new ExitCommand());
 		put("shuffle", new ShuffleCommand());
 		put("reorder", new ReorderCommand());
-//		TODO: add history command
+		put("history", new HistoryCommand());
 		put("count_by_price", new CountByPriceCommand());
 		put("print_descending", new PrintDescendingCommand());
 		put("print_field_descending_price", new PrintFieldDescendingPriceCommand());

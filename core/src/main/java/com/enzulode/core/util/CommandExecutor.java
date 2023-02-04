@@ -24,6 +24,17 @@ public class CommandExecutor
 	{
 		try
 		{
+
+			if (Console.HISTORY.size() < 7)
+			{
+				Console.HISTORY.addLast(command.getName());
+			}
+			else
+			{
+				Console.HISTORY.removeFirst();
+				Console.HISTORY.addLast(command.getName());
+			}
+
 			if (command instanceof ExecuteScriptCommand)
 			{
 				if (args.size() != 1)
